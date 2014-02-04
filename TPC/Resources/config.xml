@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Config>
+  <TcpServerAddress>192.168.130.2</TcpServerAddress>
+  <TcpServerPort>5555</TcpServerPort>
+  <GroupMcg>239.1.2.3</GroupMcg>
+  <GroupPort>1234</GroupPort>
+  <JoinTimeout>10000</JoinTimeout>
+  <ResponseTimeout>3000</ResponseTimeout>
+  <ElectionTimeout>2000</ElectionTimeout>
+  <LeaveTimeout>10000</LeaveTimeout>
+</Config>

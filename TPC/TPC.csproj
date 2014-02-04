@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{156761CE-ECBA-4E50-B046-1F5EB615D41C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TPC</RootNamespace>
+    <AssemblyName>TPC</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\NewtonSoft JSON\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Group\Elector.cs" />
+    <Compile Include="Network\Messages\ElectionAckMessage.cs" />
+    <Compile Include="Network\Messages\ElectionEndMessage.cs" />
+    <Compile Include="Network\Messages\ElectionProposalMessage.cs" />
+    <Compile Include="Network\Messages\LeaveAckMessage.cs" />
+    <Compile Include="Network\Messages\LeaveEndMessage.cs" />
+    <Compile Include="Network\Messages\MessageTypeToByteMap.cs" />
+    <Compile Include="Network\Sockets\FifoQueue.cs" />
+    <Compile Include="Network\Sockets\ReceiveDataEventArgs.cs" />
+    <Compile Include="Processor\Constants.cs" />
+    <Compile Include="Utilities\ExtensionMethods.cs" />
+    <Compile Include="Group\AppConfig.cs" />
+    <Compile Include="Group\Constants.cs" />
+    <Compile Include="Group\Coordinator.cs" />
+    <Compile Include="Group\Joiner.cs" />
+    <Compile Include="Group\Leaver.cs" />
+    <Compile Include="Utilities\LogBroker.cs" />
+    <Compile Include="Network\Messages\Constants.cs" />
+    <Compile Include="Network\Messages\KeyRequestMessage.cs" />
+    <Compile Include="Network\Messages\KeyResponseMessage.cs" />
+    <Compile Include="Network\Messages\KeyInstructMessage.cs" />
+    <Compile Include="Network\Messages\KeyDistributeMessage.cs" />
+    <Compile Include="Network\Messages\JoinAckAckMessage.cs" />
+    <Compile Include="Network\Messages\JoinAckMessage.cs" />
+    <Compile Include="Network\Messages\JoinEndMessage.cs" />
+    <Compile Include="Network\Messages\JoinMessage.cs" />
+    <Compile Include="Network\Messages\LeaveMessage.cs" />
+    <Compile Include="Network\Messages\Message.cs" />
+    <Compile Include="Network\Messages\MessageType.cs" />
+    <Compile Include="Network\Sockets\ISocket.cs" />
+    <Compile Include="Network\Sockets\MessageBuilder.cs" />
+    <Compile Include="Network\Sockets\MulticastSocket.cs" />
+    <Compile Include="Network\Sockets\ReceiveMessageEventArgs.cs" />
+    <Compile Include="Network\Sockets\TCPServer.cs" />
+    <Compile Include="Network\Sockets\TCPSocket.cs" />
+    <Compile Include="Processor\IProcessor.cs" />
+    <Compile Include="Processor\MD5HashTableProcessor.cs" />
+    <Compile Include="Processor\ProcessingCompleteEventArgs.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Lib\NewtonSoft JSON\Newtonsoft.Json.dll" />
+    <Content Include="Lib\NewtonSoft JSON\Newtonsoft.Json.pdb" />
+    <Content Include="Lib\NewtonSoft JSON\Newtonsoft.Json.xml" />
+    <Content Include="Resources\config.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\passwords.dic">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

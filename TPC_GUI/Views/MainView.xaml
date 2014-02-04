@@ -1,0 +1,16 @@
+﻿<Window x:Class="TPC_GUI.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TPC" Height="375" Width="600"
+        Icon="{Binding Icon}"
+        Loaded="Window_Loaded"
+        Closing="Window_Closing">
+
+    <Grid>
+        <ListBox Name="StatusItems" ItemsSource="{Binding StatusItems}" Margin="10,10,102,40"/>
+        <Button Command="{Binding Join}" Content="Join" HorizontalAlignment="Left" Margin="10,0,0,12" VerticalAlignment="Bottom" Width="75"/>
+        <Button Command="{Binding Leave}" Content="Leave" Margin="90,0,0,12" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="75"/>
+        <Button Command="{Binding Clear}" Content="Clear" Margin="170,0,0,12" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="75"/>
+        <Image Source="{Binding Image}" Margin="0,10,10,0" Height="113" VerticalAlignment="Top" HorizontalAlignment="Right" Width="87" RenderTransformOrigin="0.529,-0.389" />
+    </Grid>
+</Window>
